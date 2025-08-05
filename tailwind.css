@@ -1,6 +1,24 @@
-@import "tailwindcss";
+@import "tailwindcss" source("./src");
+
+@theme {
+	--color-primary: #e80f32;
+}
 
 
+@layer base {
 body {
-	@apply bg-black text-white;
+	@apply font-['Spectral'] font-light;
+}
+
+h1 {
+	@apply text-4xl text-primary font-semibold mt-6 mb-2;
+}
+
+h2 {
+	@apply text-3xl font-semibold mt-6 mb-2;
+}
+
+p {
+	@apply text-justify;
+}
 }
