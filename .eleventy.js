@@ -1,3 +1,7 @@
-export const config = {
-	dir: { input: 'src', output: 'dist' }
+import { eleventyImageTransformPlugin } from '@11ty/eleventy-img'
+
+export default function (eleventyConfig) {
+	eleventyConfig.addPlugin(eleventyImageTransformPlugin)
+	eleventyConfig.setInputDirectory('src')
+	eleventyConfig.setOutputDirectory('dist')
 }
