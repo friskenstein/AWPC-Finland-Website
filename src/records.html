@@ -1,0 +1,464 @@
+---
+layout: layout.html
+title: AWPC Finland
+---
+
+<section>
+  <h2>Ennätykset</h2>
+  <div>
+    <form method="get">
+      <table id="filters">
+        <tr>
+          <td>Sukupuoli</td>
+          <td>
+            <label
+              ><input
+                type="radio"
+                class="hidden"
+                name="sex"
+                value="M"
+              />Miehet</label
+            >
+            <label
+              ><input
+                type="radio"
+                class="hidden"
+                name="sex"
+                value="F"
+              />Naiset</label
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>Tapahtuma</td>
+          <td>
+            <label>
+              <input
+                type="checkbox"
+                class="hidden"
+                name="event"
+                value="SBD"
+              />Voimanosto</label
+            >
+            <label>
+              <input
+                type="checkbox"
+                class="hidden"
+                name="event"
+                value="B"
+              />Single-lift Penkkipunnerrus</label
+            >
+            <label>
+              <input
+                type="checkbox"
+                class="hidden"
+                name="event"
+                value="D"
+              />Single-lift Maastanosto</label
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>Varusteet</td>
+          <td>
+            <label>
+              <input
+                type="checkbox"
+                class="hidden"
+                name="equipment"
+                value="Bare"
+              />Raw</label
+            >
+            <label>
+              <input
+                type="checkbox"
+                class="hidden"
+                name="equipment"
+                value="Wraps"
+              />
+              Classic Raw</label
+            >
+            <label>
+              <input
+                type="checkbox"
+                class="hidden"
+                name="equipment"
+                value="Single-ply"
+              />Single-ply</label
+            >
+            <label>
+              <input
+                type="checkbox"
+                class="hidden"
+                name="equipment"
+                value="Multi-ply"
+              />Multi-ply</label
+            >
+            <label>
+              <input
+                type="checkbox"
+                class="hidden"
+                name="equipment"
+                value="Unlimited"
+              />Unlimited</label
+            >
+            <label class="italic text-neutral-400">
+              <input
+                type="checkbox"
+                class="hidden"
+                name="equipment"
+                value="Sleeves"
+              />Polvilämmitin</label
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>Ikäluokka</td>
+          <td>
+            <label
+              ><input
+                type="checkbox"
+                class="hidden"
+                name="division"
+                value="Open"
+              />Avoin</label
+            ><label
+              ><input
+                type="checkbox"
+                class="hidden"
+                name="division"
+                value="Youth"
+              />Lapset</label
+            ><label
+              ><input
+                type="checkbox"
+                class="hidden"
+                name="division"
+                value="T13-15"
+              />T13-15</label
+            ><label
+              ><input
+                type="checkbox"
+                class="hidden"
+                name="division"
+                value="T16-17"
+              />T16-17</label
+            ><label
+              ><input
+                type="checkbox"
+                class="hidden"
+                name="division"
+                value="T18-19"
+              />T18-19</label
+            ><label
+              ><input
+                type="checkbox"
+                class="hidden"
+                name="division"
+                value="J20-23"
+              />J20-23</label
+            >
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <label
+              ><input
+                type="checkbox"
+                class="hidden"
+                name="division"
+                value="M40-44"
+              />M40-44</label
+            ><label
+              ><input
+                type="checkbox"
+                class="hidden"
+                name="division"
+                value="M45-49"
+              />M45-49</label
+            ><label
+              ><input
+                type="checkbox"
+                class="hidden"
+                name="division"
+                value="M50-54"
+              />M50-54</label
+            ><label
+              ><input
+                type="checkbox"
+                class="hidden"
+                name="division"
+                value="M55-59"
+              />M55-59</label
+            ><label
+              ><input
+                type="checkbox"
+                class="hidden"
+                name="division"
+                value="M60-64"
+              />M60-64</label
+            >
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <label
+              ><input
+                type="checkbox"
+                class="hidden"
+                name="division"
+                value="M65-69"
+              />
+              M65-69</label
+            ><label
+              ><input
+                type="checkbox"
+                class="hidden"
+                name="division"
+                value="M70-74"
+              />
+              M70-74</label
+            ><label
+              ><input
+                type="checkbox"
+                class="hidden"
+                name="division"
+                value="M75-79"
+              />
+              M75-79</label
+            ><label
+              ><input
+                type="checkbox"
+                class="hidden"
+                name="division"
+                value="M80+"
+              />
+              M80+
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td>Painoluokka</td>
+          <td>
+            <label
+              ><input type="checkbox" class="hidden" name="class" value="44" />44</label
+            ><label
+              ><input type="checkbox" class="hidden" name="class" value="48" />48</label
+            ><label
+              ><input type="checkbox" class="hidden" name="class" value="52" />52</label
+            ><label
+              ><input type="checkbox" class="hidden" name="class" value="56" />56</label
+            ><label
+              ><input type="checkbox" class="hidden" name="class" value="60" />60</label
+            ><label
+              ><input
+                type="checkbox"
+                class="hidden"
+                name="class"
+                value="67.5"
+              />67.5</label
+            ><label
+              ><input type="checkbox" class="hidden" name="class" value="75" />75</label
+            ><label
+              ><input
+                type="checkbox"
+                class="hidden"
+                name="class"
+                value="82.5"
+              />82.5</label
+            >
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <label
+              ><input type="checkbox" class="hidden" name="class" value="90" />90</label
+            ><label
+              ><input type="checkbox" class="hidden" name="class" value="100" />100</label
+            ><label
+              ><input type="checkbox" class="hidden" name="class" value="110" />110</label
+            ><label
+              ><input type="checkbox" class="hidden" name="class" value="125" />125</label
+            ><label
+              ><input type="checkbox" class="hidden" name="class" value="140" />140</label
+            ><label
+              ><input
+                type="checkbox"
+                class="hidden"
+                name="class"
+                value="SHW"
+              />SHW</label>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Laji</td>
+          <td>
+            <label
+              ><input type="checkbox" class="hidden" name="lift" value="S" />Kyykky</label
+            ><label
+              ><input type="checkbox" class="hidden" name="lift" value="B" />Penkkipunnerrus</label
+            ><label
+              ><input type="checkbox" class="hidden" name="lift" value="D" />Maastanosto</label
+            ><label
+              ><input type="checkbox" class="hidden" name="lift" value="SBD" />Yhteistulos</label>
+          </td>
+        </tr>
+      </table>
+      <div class="flex justify-center mt-8">
+        <button
+          class="bg-gradient-to-b text-blue-100 from-blue-600 to-blue-900 p-2 rounded-full w-16"
+          type="submit"
+        >Hae</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<table class="w-full mt-16" id="records">
+  <tr>
+    <td>-52</td>
+    <td>Raw</td>
+    <td>Penkkipunnerrus <span class="text-xs">(Single-lift)</span></td>
+    <td><b>75</b></td>
+    <td class="text-blue-700">Standard</td>
+    <td class="text-xs"><br /></td>
+  </tr>
+  <tr>
+    <td>-56</td>
+    <td>Raw</td>
+    <td>Penkkipunnerrus <span class="text-xs">(Single-lift)</span></td>
+    <td><b>87.5</b></td>
+    <td class="text-blue-700">Standard</td>
+    <td class="text-xs"><br /></td>
+  </tr>
+  <tr>
+    <td>-60</td>
+    <td>Raw</td>
+    <td>Penkkipunnerrus <span class="text-xs">(Single-lift)</span></td>
+    <td><b>102.5</b></td>
+    <td class="text-blue-700">Standard</td>
+    <td class="text-xs"><br /></td>
+  </tr>
+  <tr>
+    <td>-67.5</td>
+    <td>Raw</td>
+    <td>Penkkipunnerrus <span class="text-xs">(Single-lift)</span></td>
+    <td><b>115</b></td>
+    <td class="text-blue-700">Standard</td>
+    <td class="text-xs"><br /></td>
+  </tr>
+  <tr>
+    <td>-75</td>
+    <td>Raw</td>
+    <td>Penkkipunnerrus <span class="text-xs">(Single-lift)</span></td>
+    <td><b>127.5</b></td>
+    <td class="text-blue-700">Standard</td>
+    <td class="text-xs"><br /></td>
+  </tr>
+  <tr>
+    <td>-82.5</td>
+    <td>Raw</td>
+    <td>Penkkipunnerrus <span class="text-xs">(Single-lift)</span></td>
+    <td><b>135</b></td>
+    <td class="text-blue-700">Standard</td>
+    <td class="text-xs"><br /></td>
+  </tr>
+  <tr>
+    <td>-90</td>
+    <td>Raw</td>
+    <td>Penkkipunnerrus <span class="text-xs">(Single-lift)</span></td>
+    <td><b>140</b></td>
+    <td class="text-blue-700">Standard</td>
+    <td class="text-xs"><br /></td>
+  </tr>
+  <tr>
+    <td>-100</td>
+    <td>Raw</td>
+    <td>Penkkipunnerrus <span class="text-xs">(Single-lift)</span></td>
+    <td><b>195</b></td>
+    <td>Samuli Salo</td>
+    <td class="text-xs">
+      29.6.2025 <br />
+      Uusikaupunki
+    </td>
+  </tr>
+  <tr>
+    <td>-110</td>
+    <td>Raw</td>
+    <td>Penkkipunnerrus <span class="text-xs">(Single-lift)</span></td>
+    <td><b>160</b></td>
+    <td>Juuso Knuutila</td>
+    <td class="text-xs">
+      29.6.2025 <br />
+      Uusikaupunki
+    </td>
+  </tr>
+  <tr>
+    <td>-125</td>
+    <td>Raw</td>
+    <td>Penkkipunnerrus <span class="text-xs">(Single-lift)</span></td>
+    <td><b>167.5</b></td>
+    <td class="text-blue-700">Standard</td>
+    <td class="text-xs"><br /></td>
+  </tr>
+  <tr>
+    <td>-140</td>
+    <td>Raw</td>
+    <td>Penkkipunnerrus <span class="text-xs">(Single-lift)</span></td>
+    <td><b>175</b></td>
+    <td class="text-blue-700">Standard</td>
+    <td class="text-xs"><br /></td>
+  </tr>
+  <tr>
+    <td>SHW</td>
+    <td>Raw</td>
+    <td>Penkkipunnerrus <span class="text-xs">(Single-lift)</span></td>
+    <td><b>185</b></td>
+    <td class="text-blue-700">Standard</td>
+    <td class="text-xs"><br /></td>
+  </tr>
+</table>
+
+<style>
+  label {
+    @apply cursor-pointer;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 1px 4px;
+    white-space: nowrap;
+    margin-right: 2px;
+  }
+  label:has(input[type="checkbox"]:checked),
+  label:has(input[type="radio"]:checked) {
+    background-color: var(--color-primary);
+    color: var(--color-blue-100);
+    border-color: transparent;
+
+    --tw-gradient-position: to bottom in oklab;
+    background-image: linear-gradient(var(--tw-gradient-stops));
+    --tw-gradient-from: var(--color-blue-600)
+      /* oklch(54.6% 0.245 262.881) = #155dfc */;
+    --tw-gradient-stops: var(
+      --tw-gradient-via-stops,
+      var(--tw-gradient-position),
+      var(--tw-gradient-from) var(--tw-gradient-from-position),
+      var(--tw-gradient-to) var(--tw-gradient-to-position)
+    );
+    --tw-gradient-to: var(--color-blue-900)
+      /* oklch(37.9% 0.146 265.522) = #1c398e */;
+    --tw-gradient-stops: var(
+      --tw-gradient-via-stops,
+      var(--tw-gradient-position),
+      var(--tw-gradient-from) var(--tw-gradient-from-position),
+      var(--tw-gradient-to) var(--tw-gradient-to-position)
+    );
+  }
+  td {
+    padding: 4px 8px;
+  }
+</style>
