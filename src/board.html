@@ -1,0 +1,273 @@
+---
+layout: layout.html
+title: AWPC Finland
+---
+
+
+<h2 class="sticky top-4">Johtokunta</h2>
+
+<div class="scrolly">
+	<div class="scrolly__sticky" aria-hidden="true">
+		<div class="layer" data-layer="0">
+			<img src="/img/maria.png" alt="Layer 1" />
+		</div>
+		<div class="layer" data-layer="3">
+			<img src="/img/johan.png" alt="Layer 4" />
+		</div>
+		<div class="layer" data-layer="1">
+			<img src="/img/kalle.png" alt="Layer 2" />
+		</div>
+		<div class="layer" data-layer="2">
+			<img src="/img/iiro.png" alt="Layer 3" />
+		</div>
+	</div>
+
+	<div class="text-viewport" aria-live="polite">
+		<div class="ribbon drop-shadow-lg" aria-hidden="true">
+			<svg viewBox="0 0 100 30" preserveAspectRatio="none" class="w-full h-full block -translate-y-0.5">
+				<rect x="0" y="0" width="100" height="30" fill="#fff" />
+				<rect x="0" y="10" width="100" height="10" fill="#1d4ed8" />
+				<line x1="0" y1="0" x2="100" y2="0" stroke="#000" stroke-width="2" stroke-linecap="round" />
+				<line x1="0" y1="30" x2="100" y2="30" stroke="#000" stroke-width="2" stroke-linecap="round" />
+			</svg>
+			<img src="/img/AmateurWorldPowerliftingCongress.png" alt="AWPC Finland" class="relative top-[-126%] size-[80px] mx-auto" />
+		</div>
+	</div>
+
+	<div class="steps">
+		<section class="step" data-index="0">
+			<div class="step__content">
+				<h3>Maria Jokipalo</h3>
+				<div class="text-primary font-medium text-lg">President</div>
+			</div>
+		</section>
+		<section class="step" data-index="3">
+			<div class="step__content">
+				<h3>Johan Frisk</h3>
+				<div class="text-primary font-medium text-lg">Officer</div>
+			</div>
+		</section>
+		<section class="step" data-index="1">
+			<div class="step__content">
+				<h3>Kalle Ylitalo-James</h3>
+				<div class="text-primary font-medium text-lg">Vice President</div>
+			</div>
+		</section>
+		<section class="step" data-index="2">
+			<div class="step__content">
+				<h3>Iiro Jokipalo</h3>
+				<div class="text-primary font-medium text-lg">Secretary</div>
+			</div>
+		</section>
+	</div>
+</div>
+
+<style>
+	h3 {
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
+
+	.scrolly {
+		position: relative;
+		/* Center the image+text combo vertically */
+		--img-h: 40vh; /* image stack height */
+		--text-h: 28vh; /* text viewport height */
+		--combo-h: calc(var(--img-h) + var(--text-h));
+		--combo-top: calc((100vh - var(--combo-h)) / 2);
+		--between-gap: 1rem; /* gap between image and text */
+		--before-neutral: 10vh; /* neutral zone before first step */
+		--after-neutral: 12vh; /* neutral zone after last step */
+	}
+	.scrolly__sticky {
+		position: sticky;
+		top: var(--combo-top);
+		height: var(--img-h);
+		isolation: isolate;
+		z-index: 0;
+	}
+	.scrolly__sticky .layer {
+		position: absolute;
+		inset: 0;
+		display: block; /* we'll absolutely position imgs inside */
+		transition: opacity 400ms ease, filter 400ms ease, transform 400ms ease;
+		opacity: 1;
+		filter: grayscale(0%) saturate(30%) brightness(70%);
+		transform: scale(1);
+		transform-origin: center bottom;
+	}
+	.scrolly__sticky .layer img {
+		position: absolute;
+		bottom: 0;
+		left: var(--x, 0%);
+		transform: translateX(calc(-1 * var(--anchor, 0.5) * 100%));
+		width: var(--img-col-w, calc(100% / 3));
+		max-width: none;
+		max-height: var(--img-h);
+		height: auto;
+		object-fit: contain;
+		pointer-events: none;
+	}
+	.scrolly__sticky .layer { z-index: 0; }
+	.scrolly__sticky .layer[data-layer="0"] { --x: 40%; --anchor: 0.5; --img-col-w: 38%; z-index: 4; }
+	.scrolly__sticky .layer[data-layer="1"] { --x: 111%; --anchor: 1; --img-col-w: 46%; z-index: 6; }
+	.scrolly__sticky .layer[data-layer="2"] { --x: -4%; --anchor: 0; --img-col-w: 34%; }
+	.scrolly__sticky .layer[data-layer="3"] { --x: 60%; --anchor: 0.5; --img-col-w: 40%; z-index: 5; }
+	.scrolly__sticky .layer.is-active {
+		opacity: 1;
+		filter: none;
+		transform: scale(1.04);
+		z-index: 999;
+	}
+	.scrolly.is-neutral .scrolly__sticky .layer {
+		opacity: 1;
+		filter: none;
+		transform: scale(1);
+	}
+
+	.text-viewport {
+		position: sticky;
+		top: calc(var(--combo-top) + var(--img-h));
+		height: var(--text-h);
+		display: grid;
+		/* anchor text to the top of the bottom zone to sit close to images */
+		place-items: start center;
+		z-index: 2;
+		pointer-events: none;
+	}
+	.text-viewport .ribbon {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		margin-left: -2rem;
+		margin-right: -2rem;
+		height: var(--ribbon-h, 56px);
+		pointer-events: none;
+	}
+	.text-viewport .text-layer {
+		position: absolute;
+		inset: 0;
+		display: grid;
+		place-items: start center;
+		text-align: center;
+		padding: calc(var(--between-gap) + var(--ribbon-h, 56px)) 1rem 0; /* leave room for ribbon */
+		opacity: 0;
+		transition: opacity 250ms ease;
+	}
+	.text-viewport .text-layer .inner {
+		max-width: min(85vw, 720px);
+		margin: 0 auto;
+		text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+	}
+
+	/* Steps: natural height; hide visual to avoid duplicate text */
+	.steps {
+		position: relative;
+		z-index: 1;
+		padding-top: var(--before-neutral);
+		padding-bottom: var(--after-neutral);
+	}
+	.steps .step {
+		margin: 0;
+		padding: 0.75rem 0; /* small breathing room without extra height */
+	}
+	/* add virtual scroll space per step without changing visible content size */
+	.steps .step::after {
+		content: '';
+		display: block;
+		height: var(--per-step-scroll, 80vh);
+	}
+	.steps .step:last-child::after {
+		height: calc(var(--per-step-scroll, 80vh) + 25vh);
+	}
+	.steps .step .step__content {
+		visibility: hidden; /* still occupies natural height */
+	}
+
+	.text-viewport h3 {
+		text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+	}
+</style>
+
+<script>
+	(function () {
+		const scrolly = document.querySelector('.scrolly');
+		const imgLayers = Array.from(document.querySelectorAll('.scrolly__sticky .layer'));
+		const steps = Array.from(document.querySelectorAll('.steps .step'));
+		const textViewport = document.querySelector('.text-viewport');
+
+		if (!textViewport || !steps.length) return;
+
+		// Build text layers inside the sticky viewport by cloning step content
+		const textLayers = steps.map((step, i) => {
+			const content = step.querySelector('.step__content');
+			const layer = document.createElement('div');
+			layer.className = 'text-layer';
+			layer.dataset.index = String(i);
+			const inner = document.createElement('div');
+			inner.className = 'inner';
+			if (content) inner.appendChild(content.cloneNode(true));
+			layer.appendChild(inner);
+			textViewport.appendChild(layer);
+			return layer;
+		});
+
+		function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+
+		function update() {
+			const rvp = textViewport.getBoundingClientRect();
+			const regionTop = rvp.top;
+			const regionBottom = rvp.bottom;
+			const regionCenter = (rvp.top + rvp.bottom) / 2;
+
+			const firstR = steps[0].getBoundingClientRect();
+			const lastR = steps[steps.length - 1].getBoundingClientRect();
+			const inRange = !(regionBottom <= firstR.top || regionTop >= lastR.bottom);
+
+			if (!inRange) {
+				textLayers.forEach(layer => { layer.style.opacity = '0'; });
+				imgLayers.forEach(layer => layer.classList.remove('is-active'));
+				if (scrolly) scrolly.classList.add('is-neutral');
+				return;
+			}
+
+			if (scrolly) scrolly.classList.remove('is-neutral');
+
+			// Choose the step whose center is closest to the region center
+			let activeIdx = 0;
+			let bestDist = Infinity;
+			steps.forEach((step, i) => {
+				const r = step.getBoundingClientRect();
+				const center = (r.top + r.bottom) / 2;
+				const d = Math.abs(center - regionCenter);
+				if (d < bestDist) { bestDist = d; activeIdx = i; }
+			});
+
+			textLayers.forEach((layer, i) => {
+				layer.style.opacity = i === activeIdx ? '1' : '0';
+			});
+
+			imgLayers.forEach((layer, i) => {
+				if (i === activeIdx) layer.classList.add('is-active');
+				else layer.classList.remove('is-active');
+			});
+		}
+
+		let ticking = false;
+		function onScroll() {
+			if (!ticking) {
+				window.requestAnimationFrame(() => {
+					update();
+					ticking = false;
+				});
+				ticking = true;
+			}
+		}
+
+		window.addEventListener('scroll', onScroll, { passive: true });
+		window.addEventListener('resize', onScroll);
+		// Initial paint
+		update();
+	})();
+</script>

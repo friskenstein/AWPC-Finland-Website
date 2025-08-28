@@ -10,26 +10,20 @@
 		<title>{{ title }}</title>
 	</head>
 	<body>
-		<!-- wave graphic (symmetrical top/bottom) -->
 		<div class="lg:hidden w-screen h-[200px] absolute top-[60px] -z-50 pointer-events-none">
 			<svg viewBox="0 0 100 108" preserveAspectRatio="none" class="w-full h-full block">
-				<!-- Blue band with symmetric waves -->
 				<path d="M0,44 C12.5,26 37.5,26 50,44 C62.5,62 87.5,62 100,44 L100,64 C87.5,82 62.5,82 50,64 C37.5,46 12.5,46 0,64 Z" class="fill-blue-700" />
-				<!-- Top/bottom black outlines -->
 				<path d="M0,24 C12.5,6 37.5,6 50,24 C62.5,42 87.5,42 100,24" class="stroke-black fill-none" stroke-width="2" stroke-linecap="round" />
 				<path d="M0,84 C12.5,62 37.5,62 50,84 C62.5,106 87.5,106 100,84" class="stroke-black fill-none" stroke-width="2" stroke-linecap="round" />
 			</svg>
 		</div>
 		<div class="hidden lg:block w-screen h-[200px] absolute top-[60px] -z-50 pointer-events-none">
 			<svg viewBox="0 0 100 110" preserveAspectRatio="none" class="w-full h-full block">
-				<!-- Blue band with symmetric waves -->
 				<path d="M0,44 C12.5,16 37.5,16 50,44 C62.5,72 87.5,72 100,44 L100,64 C87.5,92 62.5,92 50,64 C37.5,36 12.5,36 0,64 Z" class="fill-blue-700" />
-				<!-- Top/bottom black outlines -->
 				<path d="M0,24 C12.5,-4 37.5,-4 50,24 C62.5,52 87.5,52 100,24" class="stroke-black fill-none" stroke-width="2" stroke-linecap="round" />
 				<path d="M0,84 C12.5,52 37.5,52 50,84 C62.5,116 87.5,116 100,84" class="stroke-black fill-none" stroke-width="2" stroke-linecap="round" />
 			</svg>
 		</div>
-		<!-- end of wave graphic -->
 		<main class="max-w-2xl mx-auto p-2">
 
 			<img src="/img/AmateurWorldPowerliftingCongress.png" alt="AWPC Finland" class="size-[300px] mx-auto" />
@@ -40,8 +34,9 @@
 				<li><a href="/testing">Testauksesta</a></li>
 				<li><a href="/banned-substances">Kielletyt aineet</a></li>
 				<li><a href="/records">Ennätykset</a></li>
+				<li><a href="/board">Johtokunta</a></li>
 			</ul>
-			<div class="w-full bg-neutral-100 p-8 rounded-3xl pt-4">
+			<div class="w-full bg-neutral-100 p-8 rounded-3xl pt-4 overflow-x-clip">
 				{{ content }}
 			</div>
 		</main>
