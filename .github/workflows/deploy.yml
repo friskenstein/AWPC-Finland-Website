@@ -1,0 +1,61 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build site
+        run: |
+          npx @11ty/eleventy
+          npx tailwindcss -i ./tailwind.css -o ./dist/style.css --minify
+          tar -C dist -czf site.tar.gz .
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: awpc_site
+          path: site.tar.gz
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: awpc_site
+          path: .
+
+      - uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Copy build to server
+        run: |
+          scp -o StrictHostKeyChecking=accept-new ./site.tar.gz \
+            ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/tmp/awpc_site.tgz
+
+      - name: Activate release atomically
+        run: |
+          ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} '
+            set -euo pipefail
+            ts=$(date +%Y%m%d%H%M%S)
+            sudo -n install -d -m 0755 /var/www/awpc/releases/$ts
+            sudo -n tar -xzf /tmp/awpc_site.tgz -C /var/www/awpc/releases/$ts
+            sudo -n ln -sfn /var/www/awpc/releases/$ts /var/www/awpc/current
+            rm -f /tmp/awpc_site.tgz
+            sudo -n systemctl reload nginx
+          '
