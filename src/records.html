@@ -238,8 +238,8 @@ title: AWPC Finland
 					const date = r.date ? r.date : ''
 					return `
 					<tr>
-						<td>${r.class}</td>
-						<td class="whitespace-nowrap">${eqText}</td>
+						<td>${(r.class === 'SHW' ? '' : '-') + r.class}</td>
+						<td class="whitespace-nowrap">${r.div.replace('-D','')} ${eqText}</td>
 						<td class="whitespace-nowrap">${liftText}</td>
 						<td class="first-row font-semibold">${r.weight == 0 ? '' : r.weight}</td>
 						<td class="first-row ${r.name === 'Standard' ? 'text-primary' : ''} whitespace-nowrap">${r.name || ''}</td>
@@ -264,6 +264,11 @@ title: AWPC Finland
 			const divVals = getCheckedValues('division')
 			const classVals = getCheckedValues('class')
 			const liftVals = getCheckedValues('lift')
+
+			if (divVals.length === 0) {
+				table.innerHTML = `<tr><td colspan=\"6\">Valitse vähintään yksi ikäluokka</td></tr>`
+				return
+			}
 
 			sexVals.forEach((v) => params.append('sex', v))
 
